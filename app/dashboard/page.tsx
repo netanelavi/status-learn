@@ -54,16 +54,6 @@ export default function DashboardPage() {
   // Find next lesson
   const nextLessonSlug = ALL_LESSONS.find(s => !progress.completedLessons.includes(s)) ?? "capstone";
 
-  // Compute course completion %
-  const courseCompletion = MINI_COURSES.map((course, i) => {
-    const done = course.lessons.filter(s => progress.completedLessons.includes(s)).length;
-    const total = course.lessons.length;
-    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-    // Unlock: first course always unlocked; subsequent ones unlock when prev is 100%
-    const isLocked = i > 0 && courseCompletion[i - 1]?.pct < 100;
-    return { ...course, done, total, pct, isLocked: false }; // all unlocked for now
-  });
-  // Re-compute with lock logic
   const coursesWithLock = MINI_COURSES.map((course, i) => {
     const done = course.lessons.filter(s => progress.completedLessons.includes(s)).length;
     const total = course.lessons.length;
