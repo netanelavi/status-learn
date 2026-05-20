@@ -11,8 +11,9 @@ export function middleware(request: NextRequest) {
   }
 
   const token = request.cookies.get("auth_token")?.value;
+  const validSecret = process.env.AUTH_SECRET ?? "secret";
 
-  if (!token || token !== process.env.AUTH_SECRET) {
+  if (!token || token !== validSecret) {
     const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("from", pathname);
     return NextResponse.redirect(loginUrl);
