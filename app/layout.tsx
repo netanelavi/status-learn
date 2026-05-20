@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn.vercel.app";
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-WG47ML4Q";
 
 const heebo = Heebo({
   variable: "--font-heebo",
