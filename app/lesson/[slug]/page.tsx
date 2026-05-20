@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import LessonView from "./lesson-view";
 import { getAllLessonsStatic, getLessonBySlugStatic } from "@/lib/content/static-lessons";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn-nerya-s-projects.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn.vercel.app";
 
 export async function generateStaticParams() {
   return getAllLessonsStatic().map((lesson) => ({ slug: lesson.slug }));

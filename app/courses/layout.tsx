@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn-nerya-s-projects.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn.vercel.app";
 
 export const metadata: Metadata = {
   title: "כל הקורסים והשיעורים",
