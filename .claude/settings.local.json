@@ -7,7 +7,12 @@
       "Bash(gh --version)",
       "Bash(vercel --version)",
       "Bash(gh auth *)",
-      "Bash(vercel whoami *)"
+      "Bash(vercel whoami *)",
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__get_runtime_logs",
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__list_deployments",
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__get_project",
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__web_fetch_vercel_url",
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__get_deployment_build_logs"
     ]
   }
 }
