@@ -40,6 +40,13 @@ export default function DashboardPage() {
     setProgress(getProgress());
   }, []);
 
+  // Count-up for numbers shown in the header
+  const completedCount = useCountUp(progress?.completedLessons.length ?? 0, 800);
+  const overallPctAnimated = useCountUp(
+    progress ? Math.round((progress.completedLessons.length / TOTAL_LESSONS) * 100) : 0,
+    800
+  );
+
   if (!progress) {
     return (
       <AppLayout>
@@ -86,7 +93,7 @@ export default function DashboardPage() {
             </h1>
             <p className="text-muted-foreground">
               רמה {levelInfo.level} — <span className="text-foreground font-medium">{levelInfo.title}</span>
-              {" · "}{progress.completedLessons.length}/{TOTAL_LESSONS} שיעורים
+              {" · "}<span className="tabular-nums">{completedCount}</span>/{TOTAL_LESSONS} שיעורים
             </p>
           </motion.div>
 
@@ -108,7 +115,7 @@ export default function DashboardPage() {
           <motion.div variants={fadeUp} className="bg-card border border-border rounded-2xl p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-foreground">התקדמות כוללת</span>
-              <span className="text-sm font-bold text-primary">{overallPct}%</span>
+              <span className="text-sm font-bold text-primary tabular-nums">{overallPctAnimated}%</span>
             </div>
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <motion.div
@@ -122,21 +129,27 @@ export default function DashboardPage() {
 
           {/* Next lesson CTA */}
           <motion.div variants={fadeUp}>
-            <Link
-              href={`/lesson/${nextLessonSlug}`}
-              className="group flex items-center justify-between bg-primary text-primary-foreground rounded-2xl p-5 hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 active:scale-[0.99]"
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                  <Zap className="w-5 h-5" />
+              <Link
+                href={`/lesson/${nextLessonSlug}`}
+                className="group flex items-center justify-between bg-primary text-primary-foreground rounded-2xl p-5 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm opacity-80">המשך ללמוד</p>
+                    <p className="font-semibold">השיעור הבא שלך</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm opacity-80">המשך ללמוד</p>
-                  <p className="font-semibold">השיעור הבא שלך</p>
-                </div>
-              </div>
-              <ArrowLeft className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity rotate-180" />
-            </Link>
+                <ArrowLeft className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity rotate-180" />
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Mini-course cards */}
@@ -144,9 +157,11 @@ export default function DashboardPage() {
             <h2 className="text-lg font-display font-bold text-foreground mb-3">המסלול שלך</h2>
             <div className="space-y-3">
               {coursesWithLock.map((course) => (
-                <div
+                <motion.div
                   key={course.id}
                   className={`bg-gradient-to-br ${COURSE_COLORS[course.color]} border rounded-xl p-4 ${course.isLocked ? "opacity-50" : ""}`}
+                  whileHover={course.isLocked ? undefined : { y: -2, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
