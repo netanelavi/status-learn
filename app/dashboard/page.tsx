@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Zap, BookOpen, ArrowLeft, Lock } from "lucide-react";
-import { getProgress } from "@/lib/gamification/storage";
+import { getProgress, resetProgress } from "@/lib/gamification/storage";
 import { getLevelFromXp, BADGES } from "@/lib/gamification/types";
 import type { UserProgress } from "@/lib/gamification/types";
 import { XpBar } from "@/components/gamification/xp-bar";
@@ -51,6 +51,12 @@ export default function DashboardPage() {
     setProgress(getProgress());
   }, []);
 
+  function handleReset() {
+    if (!confirm("למחוק את כל ההתקדמות?")) return;
+    resetProgress();
+    setProgress(getProgress());
+  }
+
   // Count-up for numbers shown in the header
   const completedCount = useCountUp(progress?.completedLessons.length ?? 0, 800);
   const overallPctAnimated = useCountUp(
@@ -77,12 +83,7 @@ export default function DashboardPage() {
     const done = course.lessons.filter(s => progress.completedLessons.includes(s)).length;
     const total = course.lessons.length;
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-    let isLocked = false;
-    if (i > 0) {
-      const prevDone = MINI_COURSES[i - 1].lessons.filter(s => progress.completedLessons.includes(s)).length;
-      isLocked = prevDone < MINI_COURSES[i - 1].lessons.length;
-    }
-    return { ...course, done, total, pct, isLocked };
+    return { ...course, done, total, pct, isLocked: false };
   });
 
   const recentBadges = BADGES.filter(b => progress.badges.includes(b.slug)).slice(-3);
@@ -98,14 +99,22 @@ export default function DashboardPage() {
         <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
 
           {/* Header */}
-          <motion.div variants={fadeUp}>
-            <h1 className="text-2xl font-display font-black text-foreground mb-1">
-              שלום! 👋
-            </h1>
-            <p className="text-muted-foreground">
-              רמה {levelInfo.level} — <span className="text-foreground font-medium">{levelInfo.title}</span>
-              {" · "}<span className="tabular-nums">{completedCount}</span>/{TOTAL_LESSONS} שיעורים
-            </p>
+          <motion.div variants={fadeUp} className="flex items-start justify-between">
+            <div>
+              <h1 className="text-2xl font-display font-black text-foreground mb-1">
+                שלום! 👋
+              </h1>
+              <p className="text-muted-foreground">
+                רמה {levelInfo.level} — <span className="text-foreground font-medium">{levelInfo.title}</span>
+                {" · "}<span className="tabular-nums">{completedCount}</span>/{TOTAL_LESSONS} שיעורים
+              </p>
+            </div>
+            <button
+              onClick={handleReset}
+              className="text-xs text-muted-foreground/50 hover:text-destructive transition-colors px-2 py-1 rounded"
+            >
+              איפוס
+            </button>
           </motion.div>
 
           {/* XP + Streak row */}
