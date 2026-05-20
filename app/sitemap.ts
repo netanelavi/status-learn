@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllLessonsStatic } from "@/lib/content/static-lessons";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn-nerya-s-projects.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lessons = getAllLessonsStatic();
