@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "google-tagmanager": {
+      "source": "henkisdabro/wookstar-claude-code-plugins",
+      "sourceType": "github",
+      "skillPath": "plugins/google-tagmanager/skills/google-tagmanager/SKILL.md",
+      "computedHash": "a7deac16e404d8ada3b379810cfea3bdf2feee40f37b90ef52d709411b6ab1f0"
+    }
+  }
+}
