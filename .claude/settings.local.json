@@ -14,7 +14,8 @@
       "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__web_fetch_vercel_url",
       "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__get_deployment_build_logs",
       "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__search_vercel_documentation",
-      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__list_projects"
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__list_projects",
+      "mcp__8e82ec53-f00e-4385-bb38-aa26f15cae40__get_deployment"
     ]
   }
 }

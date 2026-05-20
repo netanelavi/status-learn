@@ -17,7 +17,7 @@ export async function GET(
   }
 
   const { image } = await generateImage({
-    model: gateway.imageModel("openai/dall-e-3"),
+    model: gateway.imageModel("openai/gpt-image-2"),
     prompt: lesson.heroImagePrompt,
   });
 
