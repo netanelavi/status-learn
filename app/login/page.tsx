@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -23,8 +21,7 @@ export default function LoginPage() {
     });
 
     if (res.ok) {
-      router.push("/dashboard");
-      router.refresh();
+      window.location.href = "/dashboard";
     } else {
       const data = await res.json();
       setError(data.error ?? "שגיאה בהתחברות");
