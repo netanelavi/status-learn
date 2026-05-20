@@ -97,6 +97,24 @@ const COURSES = [
       { slug: "opinion-content", title: "תוכן עם דעה — ההפך מבטוח הוא ויראלי", duration: "14 דקות", xp: 85 },
     ],
   },
+  {
+    id: "analytics-growth", emoji: "📊", title: "Analytics & Growth",
+    subtitle: "מספרים שמספרים את האמת", color: "lime",
+    lessons: [
+      { slug: "reading-your-stats", title: "קריאת המספרים — הנתונים שמספרים את האמת", duration: "14 דקות", xp: 90 },
+      { slug: "growth-experiments", title: "ניסויי גדילה — איך לבדוק מה עובד", duration: "13 דקות", xp: 85 },
+      { slug: "content-decisions", title: "החלטות תוכן מבוססות דאטה — מהנחשים לנבונים", duration: "12 דקות", xp: 90 },
+    ],
+  },
+  {
+    id: "video-content", emoji: "🎬", title: "Video & Short Content",
+    subtitle: "וידאו שעוצר אצבעות", color: "sky",
+    lessons: [
+      { slug: "filming-basics", title: "צילום בסמארטפון — הטכניקות שמשנות הכל", duration: "15 דקות", xp: 85 },
+      { slug: "editing-for-status", title: "עריכה לStatus — פשוט ומנצח", duration: "13 דקות", xp: 80 },
+      { slug: "video-hooks", title: "Hook ויזואלי — 3 השניות שקובעות הכל", duration: "14 דקות", xp: 90 },
+    ],
+  },
 ];
 
 const CAPSTONE = {
@@ -117,6 +135,8 @@ const ACCENT_COLORS: Record<string, string> = {
   orange: "text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20",
   teal: "text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20",
   pink: "text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/20",
+  lime: "text-lime-600 dark:text-lime-400 bg-lime-50 dark:bg-lime-900/20",
+  sky: "text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-900/20",
   gold: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20",
 };
 

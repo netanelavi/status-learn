@@ -61,6 +61,16 @@ import authenticVoice from "@/content/courses/10-voice-authenticity/01-authentic
 import antiGeneric from "@/content/courses/10-voice-authenticity/02-anti-generic";
 import opinionContent from "@/content/courses/10-voice-authenticity/03-opinion-content";
 
+// ── Course 11: Analytics & Growth ─────────────────────────────────────────
+import readingYourStats from "@/content/courses/11-analytics-growth/01-reading-your-stats";
+import growthExperiments from "@/content/courses/11-analytics-growth/02-growth-experiments";
+import contentDecisions from "@/content/courses/11-analytics-growth/03-content-decisions";
+
+// ── Course 12: Video & Short Content ──────────────────────────────────────
+import filmingBasics from "@/content/courses/12-video-content/01-filming-basics";
+import editingForStatus from "@/content/courses/12-video-content/02-editing-for-status";
+import videoHooks from "@/content/courses/12-video-content/03-video-hooks";
+
 // ---------------------------------------------------------------------------
 // Master list — order determines lesson sequence
 // ---------------------------------------------------------------------------
@@ -110,6 +120,14 @@ const ALL_LESSONS: Lesson[] = [
   authenticVoice,
   antiGeneric,
   opinionContent,
+  // Analytics & Growth
+  readingYourStats,
+  growthExperiments,
+  contentDecisions,
+  // Video & Short Content
+  filmingBasics,
+  editingForStatus,
+  videoHooks,
 ];
 
 // ---------------------------------------------------------------------------

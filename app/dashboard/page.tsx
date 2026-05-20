@@ -23,6 +23,8 @@ const MINI_COURSES = [
   { id: "content-system", slug: "content-system", title: "Content System", emoji: "⚙️", subtitle: "מנגנון תוכן שעובד לבד", lessons: ["content-pillars", "batch-creation", "repurposing"], color: "orange" },
   { id: "monetization", slug: "monetization", title: "Monetization", emoji: "💵", subtitle: "הופכים נוכחות לכסף אמיתי", lessons: ["pricing-value", "launch-sequence", "dm-conversion"], color: "teal" },
   { id: "voice-authenticity", slug: "voice-authenticity", title: "Voice & Authenticity", emoji: "🎙️", subtitle: "להישמע כמוך ולא כמו AI", lessons: ["authentic-voice", "anti-generic", "opinion-content"], color: "pink" },
+  { id: "analytics-growth", slug: "analytics-growth", title: "Analytics & Growth", emoji: "📊", subtitle: "מספרים שמספרים את האמת", lessons: ["reading-your-stats", "growth-experiments", "content-decisions"], color: "lime" },
+  { id: "video-content", slug: "video-content", title: "Video & Short Content", emoji: "🎬", subtitle: "וידאו שעוצר אצבעות", lessons: ["filming-basics", "editing-for-status", "video-hooks"], color: "sky" },
 ];
 
 const ALL_LESSONS = MINI_COURSES.flatMap(c => c.lessons);
@@ -38,6 +40,8 @@ const COURSE_COLORS: Record<string, string> = {
   orange: "from-orange-500/15 to-orange-600/5 border-orange-200/50 dark:border-orange-700/30",
   teal: "from-teal-500/15 to-teal-600/5 border-teal-200/50 dark:border-teal-700/30",
   pink: "from-pink-500/15 to-pink-600/5 border-pink-200/50 dark:border-pink-700/30",
+  lime: "from-lime-500/15 to-lime-600/5 border-lime-200/50 dark:border-lime-700/30",
+  sky: "from-sky-500/15 to-sky-600/5 border-sky-200/50 dark:border-sky-700/30",
 };
 
 export default function DashboardPage() {
