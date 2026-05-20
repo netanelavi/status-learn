@@ -96,11 +96,9 @@ export const metadata: Metadata = {
       "he-IL": BASE_URL,
     },
   },
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
-    verification: {
-      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-    },
-  }),
+  verification: {
+    google: "UQI8HshDWqQIYAuWl2MILDquZOzWwjREJDxAI4dhbgQ",
+  },
 };
 
 const organizationJsonLd = {
