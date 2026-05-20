@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { gtm } from "@/lib/gtm";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -21,6 +22,7 @@ export default function LoginPage() {
     });
 
     if (res.ok) {
+      gtm.login();
       window.location.href = "/dashboard";
     } else {
       const data = await res.json();

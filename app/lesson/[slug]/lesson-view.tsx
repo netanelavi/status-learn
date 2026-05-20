@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Zap, AlertTriangle } from "lucide-react";
@@ -12,6 +12,7 @@ import { RetrievalQuiz } from "@/components/lesson/retrieval-quiz";
 import { ActionItemCard } from "@/components/lesson/action-item-card";
 import { showLevelUpToast } from "@/components/gamification/level-up-toast";
 import { AppLayout } from "@/components/layout/app-layout";
+import { gtm } from "@/lib/gtm";
 
 const TOTAL_LESSONS = 23;
 
@@ -35,13 +36,27 @@ export default function LessonView({ lesson, nextLesson, totalLessons, lessonInd
   };
   const courseTitle = COURSE_TITLES[lesson.courseId] ?? lesson.courseId;
 
+  useEffect(() => {
+    gtm.lessonStart(lesson.slug, lesson.title, lesson.courseId);
+  }, [lesson.slug, lesson.title, lesson.courseId]);
+
   const handleQuizComplete = useCallback((score: number) => {
     const result = completeLesson(lesson.slug, lesson.xpReward, TOTAL_LESSONS);
     if (result.leveledUp || result.newBadges.length > 0) {
       showLevelUpToast(result.progress.level, result.newBadges);
+      result.newBadges.forEach(b => gtm.badgeEarned(b.slug, b.title));
+    }
+    gtm.lessonComplete(lesson.slug, lesson.title, lesson.courseId, lesson.xpReward);
+    if (score > 0) {
+      gtm.quizComplete(lesson.slug, score);
     }
     setPhase("done");
-  }, [lesson.slug, lesson.xpReward]);
+  }, [lesson.slug, lesson.title, lesson.courseId, lesson.xpReward]);
+
+  const handleQuizSkip = useCallback(() => {
+    gtm.quizSkip(lesson.slug);
+    handleQuizComplete(0);
+  }, [lesson.slug, handleQuizComplete]);
 
   return (
     <AppLayout>
@@ -84,7 +99,7 @@ export default function LessonView({ lesson, nextLesson, totalLessons, lessonInd
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              onClick={() => handleQuizComplete(0)}
+              onClick={handleQuizSkip}
               className="w-full py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               דלג על הבוחן →
