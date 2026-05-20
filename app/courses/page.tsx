@@ -277,7 +277,6 @@ export default function CoursesPage() {
 
         <div className="space-y-3">
           {COURSES.map((course, i) => {
-            const prevDone = i === 0 ? true : COURSES[i - 1].lessons.every(l => progress.completedLessons.includes(l.slug));
             return (
               <motion.div
                 key={course.id}
@@ -288,8 +287,8 @@ export default function CoursesPage() {
                 <CourseCard
                   course={course}
                   progress={progress}
-                  isLocked={!prevDone && i > 0}
-                  prevCompleted={prevDone}
+                  isLocked={false}
+                  prevCompleted={true}
                 />
               </motion.div>
             );

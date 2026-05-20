@@ -84,6 +84,11 @@ export function completeLesson(
   };
 }
 
+export function resetProgress(): void {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(STORAGE_KEY);
+}
+
 export function completeActionItem(slug: string): UserProgress {
   const prev = getProgress();
   if (prev.actionItemsCompleted.includes(slug)) return prev;
