@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useCountUp } from "@/hooks/use-count-up";
 
 interface XpBarProps {
   xp: number;
@@ -22,6 +23,8 @@ export function XpBar({
 }: XpBarProps) {
   const isMaxLevel = xp >= nextXp && nextXp === xp;
   const isFull = progress >= 100;
+  const displayXp = useCountUp(xp, 900);
+  const displayNextXp = useCountUp(nextXp, 900);
 
   return (
     <div className={cn("space-y-2", className)}>
@@ -31,7 +34,7 @@ export function XpBar({
           רמה {level} — {levelTitle}
         </span>
         <span className="text-muted-foreground ltr-inline">
-          {xp.toLocaleString()} / {nextXp.toLocaleString()} XP
+          {displayXp.toLocaleString()} / {displayNextXp.toLocaleString()} XP
         </span>
       </div>
 
@@ -39,15 +42,21 @@ export function XpBar({
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted">
         <motion.div
           className={cn(
-            "h-full rounded-full",
+            "relative h-full rounded-full overflow-hidden",
             isFull
-              ? "bg-[var(--gold)] shadow-[0_0_12px_var(--gold)] animate-xp-pulse"
+              ? "bg-[var(--gold)] animate-xp-glow-pulse"
               : "bg-primary"
           )}
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-        />
+        >
+          {/* Shimmer overlay */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-xp-shimmer"
+          />
+        </motion.div>
       </div>
 
       {isMaxLevel && (

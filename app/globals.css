@@ -119,5 +119,21 @@
   50% { transform: scale(1.1) rotate(2deg); }
 }
 
+/* XP bar shimmer — overlays a moving highlight on the fill */
+@keyframes xp-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Glow pulse for full / max XP bar */
+@keyframes xp-glow-pulse {
+  0%, 100% { box-shadow: 0 0 6px 1px var(--gold); }
+  50%       { box-shadow: 0 0 18px 4px var(--gold); }
+}
+
 .animate-xp-pulse { animation: xp-pulse 1.5s ease-in-out infinite; }
 .animate-streak-fire { animation: streak-fire 0.8s ease-in-out infinite; }
+.animate-xp-glow-pulse { animation: xp-glow-pulse 1.8s ease-in-out infinite; }
+.animate-xp-shimmer {
+  animation: xp-shimmer 1.6s ease-in-out infinite;
+}
