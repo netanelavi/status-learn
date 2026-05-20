@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, BookOpen, Zap, Trophy, Users, Target, TrendingUp } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 const miniCourses = [
   { emoji: "🏗️", title: "Foundations", subtitle: "למה Status > כל השאר", lessons: 3, color: "from-indigo-500/20 to-indigo-600/10" },
@@ -62,6 +63,7 @@ export default function LandingPage() {
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/login"
+              onClick={() => gtm.ctaClick("hero")}
               className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-semibold text-base hover:bg-primary/90 active:scale-[0.98] transition-all shadow-lg shadow-primary/25"
             >
               <Zap className="w-4 h-4" />
@@ -261,6 +263,7 @@ export default function LandingPage() {
           </p>
           <Link
             href="/login"
+            onClick={() => gtm.ctaClick("bottom")}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all shadow-xl shadow-primary/25 active:scale-[0.98]"
           >
             <Zap className="w-5 h-5" />
