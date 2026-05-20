@@ -13,13 +13,16 @@ import { BadgeGrid } from "@/components/gamification/badge-grid";
 import { AppLayout } from "@/components/layout/app-layout";
 import { useCountUp } from "@/hooks/use-count-up";
 
-// Static course data until content manifest is ready
 const MINI_COURSES = [
   { id: "foundations", slug: "foundations", title: "Foundations", emoji: "🏗️", subtitle: "למה Status > כל השאר", lessons: ["why-status", "jtbd", "brand-identity"], color: "indigo" },
   { id: "hooks-attention", slug: "hooks-attention", title: "Hooks & Attention", emoji: "🎣", subtitle: "גורמים לאצבע לעצור", lessons: ["success-framework", "opening-hooks", "visual-first", "stepps-framework", "hooks-workshop"], color: "amber" },
   { id: "trust-credibility", slug: "trust-credibility", title: "Trust & Credibility", emoji: "🤝", subtitle: "בונים אמון בלי לבקש", lessons: ["authority-social-proof", "client-stories", "reciprocity", "behind-the-scenes"], color: "emerald" },
   { id: "engagement-following", slug: "engagement-following", title: "Engagement & Following", emoji: "🚀", subtitle: "מגדילים קהל ומעורבות", lessons: ["hook-model-status", "variable-rewards", "community-building", "daily-triggers", "contact-list-growth"], color: "rose" },
   { id: "conversion", slug: "conversion", title: "Conversion", emoji: "💰", subtitle: "הופכים צופים ללקוחות", lessons: ["effective-cta", "irresistible-offer", "status-copywriting", "ethical-scarcity", "measuring-optimizing"], color: "violet" },
+  { id: "storytelling", slug: "storytelling", title: "Storytelling", emoji: "📖", subtitle: "סיפורים שגורמים לאנשים לעצור", lessons: ["hook-anatomy", "brand-story", "visual-identity"], color: "purple" },
+  { id: "content-system", slug: "content-system", title: "Content System", emoji: "⚙️", subtitle: "מנגנון תוכן שעובד לבד", lessons: ["content-pillars", "batch-creation", "repurposing"], color: "orange" },
+  { id: "monetization", slug: "monetization", title: "Monetization", emoji: "💵", subtitle: "הופכים נוכחות לכסף אמיתי", lessons: ["pricing-value", "launch-sequence", "dm-conversion"], color: "teal" },
+  { id: "voice-authenticity", slug: "voice-authenticity", title: "Voice & Authenticity", emoji: "🎙️", subtitle: "להישמע כמוך ולא כמו AI", lessons: ["authentic-voice", "anti-generic", "opinion-content"], color: "pink" },
 ];
 
 const ALL_LESSONS = MINI_COURSES.flatMap(c => c.lessons);
@@ -31,6 +34,10 @@ const COURSE_COLORS: Record<string, string> = {
   emerald: "from-emerald-500/15 to-emerald-600/5 border-emerald-200/50 dark:border-emerald-700/30",
   rose: "from-rose-500/15 to-rose-600/5 border-rose-200/50 dark:border-rose-700/30",
   violet: "from-violet-500/15 to-violet-600/5 border-violet-200/50 dark:border-violet-700/30",
+  purple: "from-purple-500/15 to-purple-600/5 border-purple-200/50 dark:border-purple-700/30",
+  orange: "from-orange-500/15 to-orange-600/5 border-orange-200/50 dark:border-orange-700/30",
+  teal: "from-teal-500/15 to-teal-600/5 border-teal-200/50 dark:border-teal-700/30",
+  pink: "from-pink-500/15 to-pink-600/5 border-pink-200/50 dark:border-pink-700/30",
 };
 
 export default function DashboardPage() {

@@ -61,6 +61,42 @@ const COURSES = [
       { slug: "measuring-optimizing", title: "מדידה ואופטימיזציה — KPIs שחשובים בסטטוס", duration: "13 דקות", xp: 90 },
     ],
   },
+  {
+    id: "storytelling", emoji: "📖", title: "Storytelling",
+    subtitle: "סיפורים שגורמים לאנשים לעצור", color: "purple",
+    lessons: [
+      { slug: "hook-anatomy", title: "אנטומיה של Hook — 3 השניות הראשונות", duration: "14 דקות", xp: 80 },
+      { slug: "brand-story", title: "סיפור המותג — המבנה שגורם לאנשים לזכור", duration: "16 דקות", xp: 90 },
+      { slug: "visual-identity", title: "שפה ויזואלית — לפני שקוראים מילה", duration: "13 דקות", xp: 80 },
+    ],
+  },
+  {
+    id: "content-system", emoji: "⚙️", title: "Content System",
+    subtitle: "מנגנון תוכן שעובד לבד", color: "orange",
+    lessons: [
+      { slug: "content-pillars", title: "עמודי תוכן — לעולם לא תיגמר לך רעיונות", duration: "16 דקות", xp: 90 },
+      { slug: "batch-creation", title: "Batch Creation — חודש תוכן ב-2 שעות", duration: "12 דקות", xp: 80 },
+      { slug: "repurposing", title: "Repurposing — מתוכן אחד לעשרה", duration: "14 דקות", xp: 80 },
+    ],
+  },
+  {
+    id: "monetization", emoji: "💵", title: "Monetization",
+    subtitle: "הופכים נוכחות לכסף אמיתי", color: "teal",
+    lessons: [
+      { slug: "pricing-value", title: "תמחור — איך לדבר על כסף בלי להבריח", duration: "17 דקות", xp: 100 },
+      { slug: "launch-sequence", title: "Launch Sequence — שבוע שמוכר", duration: "20 דקות", xp: 110 },
+      { slug: "dm-conversion", title: "DM Conversion — מStatus לכסף", duration: "16 דקות", xp: 100 },
+    ],
+  },
+  {
+    id: "voice-authenticity", emoji: "🎙️", title: "Voice & Authenticity",
+    subtitle: "להישמע כמוך ולא כמו AI", color: "pink",
+    lessons: [
+      { slug: "authentic-voice", title: "קול אמיתי — איך להישמע כמוך ולא כמו AI", duration: "15 דקות", xp: 90 },
+      { slug: "anti-generic", title: "Anti-Generic — השיטה לתוכן שאי-אפשר לשכפל", duration: "13 דקות", xp: 85 },
+      { slug: "opinion-content", title: "תוכן עם דעה — ההפך מבטוח הוא ויראלי", duration: "14 דקות", xp: 85 },
+    ],
+  },
 ];
 
 const CAPSTONE = {
@@ -77,6 +113,10 @@ const ACCENT_COLORS: Record<string, string> = {
   emerald: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20",
   rose: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/20",
   violet: "text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/20",
+  purple: "text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20",
+  orange: "text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20",
+  teal: "text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20",
+  pink: "text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/20",
   gold: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20",
 };
 

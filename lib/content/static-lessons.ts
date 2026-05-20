@@ -41,6 +41,26 @@ import measuringOptimizing from "@/content/courses/05-conversion/05-measuring-op
 // ── Capstone ───────────────────────────────────────────────────────────────
 import capstone from "@/content/courses/06-capstone/01-capstone";
 
+// ── Course 7: Storytelling ─────────────────────────────────────────────────
+import hookAnatomy from "@/content/courses/07-storytelling/01-hook-anatomy";
+import brandStory from "@/content/courses/07-storytelling/02-brand-story";
+import visualIdentity from "@/content/courses/07-storytelling/03-visual-identity";
+
+// ── Course 8: Content System ───────────────────────────────────────────────
+import contentPillars from "@/content/courses/08-content-system/01-content-pillars";
+import batchCreation from "@/content/courses/08-content-system/02-batch-creation";
+import repurposing from "@/content/courses/08-content-system/03-repurposing";
+
+// ── Course 9: Monetization ─────────────────────────────────────────────────
+import pricingValue from "@/content/courses/09-monetization/01-pricing-value";
+import launchSequence from "@/content/courses/09-monetization/02-launch-sequence";
+import dmConversion from "@/content/courses/09-monetization/03-dm-conversion";
+
+// ── Course 10: Voice & Authenticity ───────────────────────────────────────
+import authenticVoice from "@/content/courses/10-voice-authenticity/01-authentic-voice";
+import antiGeneric from "@/content/courses/10-voice-authenticity/02-anti-generic";
+import opinionContent from "@/content/courses/10-voice-authenticity/03-opinion-content";
+
 // ---------------------------------------------------------------------------
 // Master list — order determines lesson sequence
 // ---------------------------------------------------------------------------
@@ -74,6 +94,22 @@ const ALL_LESSONS: Lesson[] = [
   measuringOptimizing,
   // Capstone
   capstone,
+  // Storytelling
+  hookAnatomy,
+  brandStory,
+  visualIdentity,
+  // Content System
+  contentPillars,
+  batchCreation,
+  repurposing,
+  // Monetization
+  pricingValue,
+  launchSequence,
+  dmConversion,
+  // Voice & Authenticity
+  authenticVoice,
+  antiGeneric,
+  opinionContent,
 ];
 
 // ---------------------------------------------------------------------------
