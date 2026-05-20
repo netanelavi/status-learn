@@ -11,6 +11,7 @@ import { XpBar } from "@/components/gamification/xp-bar";
 import { StreakFlame } from "@/components/gamification/streak-flame";
 import { BadgeGrid } from "@/components/gamification/badge-grid";
 import { AppLayout } from "@/components/layout/app-layout";
+import { useCountUp } from "@/hooks/use-count-up";
 
 // Static course data until content manifest is ready
 const MINI_COURSES = [
