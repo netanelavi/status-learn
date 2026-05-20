@@ -80,6 +80,15 @@ export default function LessonView({ lesson, nextLesson, totalLessons, lessonInd
             >
               מוכן לתרגול! ←
             </motion.button>
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              onClick={() => handleQuizComplete(0)}
+              className="w-full py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              דלג על הבוחן →
+            </motion.button>
           </motion.div>
         )}
 

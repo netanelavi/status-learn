@@ -117,13 +117,16 @@ export default function LoginPage() {
               </motion.p>
             )}
 
-            <button
+            <motion.button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              whileHover={loading ? undefined : { scale: 1.02 }}
+              whileTap={loading ? undefined : { scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? "מתחבר..." : "כניסה"}
-            </button>
+            </motion.button>
           </form>
         </div>
       </motion.div>

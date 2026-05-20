@@ -190,7 +190,7 @@ export default function DashboardPage() {
                   <p className="text-xs text-muted-foreground mt-1.5">
                     {course.done}/{course.total} שיעורים
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -215,16 +215,22 @@ export default function DashboardPage() {
 
           {/* Courses link */}
           <motion.div variants={fadeUp}>
-            <Link
-              href="/courses"
-              className="flex items-center justify-between bg-card border border-border rounded-xl p-4 hover:border-primary/30 transition-colors"
+            <motion.div
+              whileHover={{ y: -1, scale: 1.005 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className="flex items-center gap-3">
-                <BookOpen className="w-5 h-5 text-primary" />
-                <span className="font-medium text-foreground">כל הקורסים והשיעורים</span>
-              </div>
-              <ArrowLeft className="w-4 h-4 text-muted-foreground rotate-180" />
-            </Link>
+              <Link
+                href="/courses"
+                className="flex items-center justify-between bg-card border border-border rounded-xl p-4 hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <BookOpen className="w-5 h-5 text-primary" />
+                  <span className="font-medium text-foreground">כל הקורסים והשיעורים</span>
+                </div>
+                <ArrowLeft className="w-4 h-4 text-muted-foreground rotate-180" />
+              </Link>
+            </motion.div>
           </motion.div>
 
         </motion.div>
