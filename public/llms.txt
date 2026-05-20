@@ -1,0 +1,23 @@
+# Status Learn
+
+> קורס שיווק WhatsApp Status לעסקים ועצמאים בישראל — 37 שיעורים בעברית
+
+Status Learn is a comprehensive Hebrew-language course teaching Israeli business owners and freelancers how to build a personal brand and generate leads through WhatsApp Status. All content is in Hebrew, mobile-first, and grounded in proven marketing frameworks.
+
+## Courses
+
+- [Foundations](/courses) — Why WhatsApp Status outperforms other channels; Jobs-to-be-Done; personal brand definition
+- [Hooks & Attention](/courses) — SUCCESs framework; opening hooks; visual-first content; STEPPS; hooks workshop
+- [Trust & Credibility](/courses) — Authority & social proof; client stories; reciprocity; behind-the-scenes
+- [Engagement & Following](/courses) — Hook Model; variable rewards; community building; daily triggers; contact list growth
+- [Conversion](/courses) — Effective CTAs; irresistible offers; WhatsApp copywriting; ethical scarcity; measuring & optimizing
+- [Storytelling](/courses) — Hook anatomy; brand story structure; visual identity
+- [Content System](/courses) — Content pillars; batch creation; repurposing
+- [Monetization](/courses) — Pricing & value; launch sequence; DM conversion
+- [Voice & Authenticity](/courses) — Authentic voice; anti-generic content; opinion content
+- [Analytics & Growth](/courses) — Reading stats; growth experiments; data-driven decisions
+- [Video & Short Content](/courses) — Filming basics; editing for Status; video hooks
+
+## Optional
+
+- [All Lessons](/courses) — Browse all 37 lessons organized by course
