@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Heebo, Frank_Ruhl_Libre } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://status-learn-nerya-s-projects.vercel.app";
 
 const heebo = Heebo({
   variable: "--font-heebo",
@@ -16,13 +18,113 @@ const frankRuhl = Frank_Ruhl_Libre({
   weight: ["400", "500", "700", "900"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "Status Learn — בנה מותג בוואטסאפ",
-  description: "תוכנית הלימודים המלאה לבניית מותג אישי דרך WhatsApp Status",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Status Learn — קורס שיווק WhatsApp Status לעסקים",
+    template: "%s | Status Learn",
+  },
+  description:
+    "קורס שיווק מקיף לבניית מותג אישי חזק דרך WhatsApp Status. 37 שיעורים בעברית, מסגרות מוכחות, וכלים מעשיים להפוך צופים ללקוחות. מתאים לעצמאים ובעלי עסקים.",
+  keywords: [
+    "שיווק ווטסאפ סטטוס",
+    "WhatsApp Status שיווק",
+    "בניית מותג אישי",
+    "קורס שיווק דיגיטלי",
+    "שיווק בוואטסאפ לעסקים",
+    "וואטסאפ שיווק עברית",
+    "קורס מותג אישי",
+    "תוכן לוואטסאפ",
+    "שיווק לעצמאים",
+    "בניית קהל בוואטסאפ",
+    "קורס שיווק ברשתות חברתיות",
+    "WhatsApp marketing Hebrew",
+    "status marketing course",
+    "digital marketing Israel",
+    "personal branding Israel",
+  ],
+  authors: [{ name: "Status Learn" }],
+  creator: "Status Learn",
+  publisher: "Status Learn",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Status Learn",
-    description: "מ-viewer ל-brand — 23 שיעורים שישנו את הנוכחות הדיגיטלית שלך",
+    type: "website",
     locale: "he_IL",
+    url: BASE_URL,
+    siteName: "Status Learn",
+    title: "Status Learn — קורס שיווק WhatsApp Status לעסקים",
+    description:
+      "37 שיעורים שיהפכו את ה-WhatsApp Status שלך למנוע לידים. מ-viewer ל-brand — בעברית, Mobile-first.",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Status Learn — קורס שיווק WhatsApp Status",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Status Learn — קורס שיווק WhatsApp Status לעסקים",
+    description:
+      "37 שיעורים שיהפכו את ה-WhatsApp Status שלך למנוע לידים. מ-viewer ל-brand — בעברית.",
+    images: ["/images/og-image.png"],
+  },
+  alternates: {
+    canonical: BASE_URL,
+    languages: {
+      "he-IL": BASE_URL,
+    },
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    },
+  }),
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Status Learn",
+  url: BASE_URL,
+  description: "קורס שיווק WhatsApp Status לעסקים ועצמאים בישראל",
+  inLanguage: "he-IL",
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Status Learn",
+  url: BASE_URL,
+  inLanguage: "he-IL",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE_URL}/courses`,
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 
@@ -39,6 +141,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-foreground antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
